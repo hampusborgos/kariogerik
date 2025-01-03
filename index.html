@@ -1,0 +1,132 @@
+<html>
+  <head>
+    <title>Kari Kriste &amp; Erik Erland</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <style>
+    @font-face {
+      font-family: "Aphasia";
+      src: url("aphasia-bt.ttf") format("truetype");
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      --text-color: #245c6c;
+      font-family: "Aphasia", "Times New Roman", sans-serif;
+      overflow: hidden;
+    }
+
+    .background {
+      background-color: #f7f7f7;
+      background-image: url("bg3.avif");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      filter: brightness(1.15);
+      width: 100vw;
+      height: 100vh;
+    }
+
+    .card {
+      width: 362px;
+      height: 571px;
+      background-color: #fff;
+      background-image: url("card.png");
+      background-size: cover;
+      background-repeat: no-repeat;
+      border-radius: 5px;
+      box-shadow: 5px 5px 20px 0 rgba(0, 0, 0, 0.8);
+      position: absolute;
+      padding-top: 200px;
+      box-sizing: border-box;
+      top: 50%;
+      left: 50%;
+      transform: perspective(500px) rotateX(2deg) rotateY(-2deg)
+        translate(-50%, -50%);
+    }
+
+    .content {
+      text-align: center;
+      color: var(--text-color);
+    }
+
+    .rsvp {
+      display: block;
+      background-color: #fff;
+      padding: 10px 20px;
+      max-width: 160px;
+      margin: 20px auto;
+      border-radius: 5px;
+      background-color: #00000020;
+      text-decoration: none;
+      color: var(--text-color);
+      transition: background-color 0.2s ease, transform 0.2s ease;
+    }
+
+    @media (max-width: 400px) {
+      .card {
+        width: 290px;
+        height: 458px;
+        padding-top: 165px;
+        border-radius: 0;
+      }
+
+      .content {
+        font-size: 0.7em;
+      }
+
+      .rsvp {
+        max-width: 120px;
+      }
+    }
+
+    .rsvp:hover {
+      background-color: #cba41a;
+      transform: scale(1.1);
+    }
+
+    .space {
+      display: inline-block;
+      white-space: nowrap;
+    }
+
+    .amp {
+      font-size: 0.8em;
+    }
+  </style>
+  <body>
+    <div class="background"></div>
+
+    <div class="card" id="card">
+      <div class="content">
+        <h1>
+          <span class="space">Kari Kristine</span><br /><span class="amp"
+            >&amp;</span
+          ><br />
+          <span class="space">Erik Erland</span>
+        </h1>
+        <div class="date">2025-05-31</div>
+        <div class="location">Oslo, Norway</div>
+
+        <a class="rsvp" href="https://typeform.com/" target="_blank">RSVP</a>
+      </div>
+    </div>
+  </body>
+  <script>
+    const hasPointer = window.matchMedia("(pointer: fine)").matches;
+    const card = document.getElementById("card");
+
+    if (hasPointer) {
+      document.body.addEventListener("mousemove", (e) => {
+        card.style.transform = `perspective(500px) rotateX(${
+          -1.5 + (3 * e.clientY) / document.body.clientHeight
+        }deg) rotateY(${
+          1.5 - (4 * e.clientX) / document.body.clientWidth
+        }deg) translate(-50%, -50%)`;
+      });
+    } else {
+      card.style.transform = `translate(-50%, -50%)`;
+    }
+  </script>
+</html>
