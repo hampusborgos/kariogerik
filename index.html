@@ -6,6 +6,13 @@
       name="description"
       content="Kari Kristine & Erik Erland gifter seg 31.05"
     />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <style>
     @font-face {
@@ -18,18 +25,45 @@
       padding: 0;
       --text-color: #245c6c;
       font-family: "Aphasia", "Times New Roman", sans-serif;
-      overflow: hidden;
+      overflow-x: hidden;
+
+      position: relative;
+      padding-bottom: 10vh;
     }
 
     .background {
+      top: 0;
+      bottom: 0;
+      width: 100vw;
+      position: absolute;
+
       background-color: #f7f7f7;
       background-image: url("bg3.avif");
       background-size: cover;
       background-position: center;
-      background-repeat: no-repeat;
-      filter: brightness(1.15);
+      background-repeat: repeat;
+      filter: brightness(1.24);
+    }
+
+    .background ~ * {
+      z-index: 1;
+      position: relative;
+    }
+
+    section {
       width: 100vw;
-      height: 100vh;
+      min-height: 20rem;
+      /* background-color: #222424; */
+      text-align: center;
+      padding: 0 2rem;
+      box-sizing: border-box;
+    }
+
+    .card-wrapper {
+      position: relative;
+      height: 90dvh;
+      min-height: 600px;
+      width: 100vw;
     }
 
     .card {
@@ -51,7 +85,7 @@
       transform-origin: 0% 0%;
     }
 
-    .content {
+    .card .content {
       text-align: center;
       color: var(--text-color);
     }
@@ -99,30 +133,172 @@
     .amp {
       font-size: 0.8em;
     }
+
+    p,
+    a,
+    figcaption,
+    h2 {
+      color: var(--text-color);
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    p {
+      max-width: 60ch;
+      margin: 1em auto;
+      font-family: "Lexend", sans-serif;
+      font-weight: 200;
+      letter-spacing: 0.004em;
+      font-size: 1.03em;
+    }
+
+    figure {
+      margin: 0;
+    }
+
+    figcaption {
+      font-size: 0.9rem;
+      font-family: "Lexend", sans-serif;
+      font-weight: 200;
+      font-style: italic;
+      letter-spacing: 0.004em;
+      text-align: center;
+      padding: 1rem;
+    }
+
+    a:not(.rsvp) {
+      background-size: 0px 1px;
+      background-position: 0px 100%;
+      background-image: linear-gradient(90deg, currentcolor, currentcolor);
+      background-repeat: no-repeat;
+      text-decoration: none;
+      display: inline-block;
+      transition: background-size 0.3s;
+    }
+
+    a:not(.rsvp):after {
+      content: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 24 24"%3E%3Cpath d="M20.0001 5.00059C20.0001 4.44831 19.5524 4.00059 19.0001 4.00059L8.66872 4.00059L8.66872 6.00059L16.5855 6.00059L3.00003 19.5858L4.41426 21L18.0001 7.41442L18.0001 15.3319L20.0001 15.3319L20.0001 5.00059Z" /%3E%3C/svg%3E');
+      padding-left: 2px;
+    }
+
+    a:not(.rsvp):hover {
+      background-size: 100% 1px;
+    }
+
+    a:not(.rsvp):focus {
+      outline: 2px solid white;
+      outline-offset: 2px;
+    }
+
+    img.big {
+      width: 100vw;
+    }
   </style>
   <body>
     <div class="background"></div>
 
-    <div class="card" id="card">
-      <div class="content">
-        <h1>
-          <span class="space">Kari Kristine</span><br /><span class="amp"
-            >&amp;</span
-          ><br />
-          <span class="space">Erik Erland</span>
-        </h1>
-        <div class="date">31.5 2025</div>
-        <div class="location">Oslo, Norway</div>
+    <div class="card-wrapper">
+      <div class="card" id="card">
+        <div class="content">
+          <h1>
+            <span class="space">Kari Kristine</span><br /><span class="amp"
+              >&amp;</span
+            ><br />
+            <span class="space">Erik Erland</span>
+          </h1>
+          <div class="date">31.5 2025</div>
+          <div class="location">Oslo, Norway</div>
 
-        <a
-          class="rsvp"
-          href="https://2wjv4biuykj.typeform.com/to/S1h2jB4T"
-          target="_blank"
-          >RSVP</a
-        >
+          <a
+            class="rsvp"
+            href="https://2wjv4biuykj.typeform.com/to/S1h2jB4T"
+            target="_blank"
+            >RSVP</a
+          >
+        </div>
       </div>
     </div>
+
+    <section class="hotel" id="hotel">
+      <div class="content">
+        <h2>Hotel</h2>
+
+        <p>
+          <a href="https://maps.google.com/maps?q=Scandic+Asker"
+            >Scandic Asker</a
+          >
+        </p>
+
+        <p>
+          Bestilling sendes på e-post til
+          <a href="mailto:asker@scandichotels.com?subject=Bryllup Erik Alsgaard"
+            >asker@scandichotels.com</a
+          >, inkluder referanse til "Bryllup Erik Alsgaard".
+        </p>
+
+        <p>
+          1195,- for enkeltrom<br />
+          1395,- for dobbeltrom
+        </p>
+      </div>
+    </section>
+
+    <section class="transport" id="transport">
+      <div class="content">
+        <h2>Festen</h2>
+
+        <p>
+          Festen vil finne sted på
+          <a href="https://maps.app.goo.gl/wqjuneTh7dbVxDxm6"
+            >Venskaben i Asker sentrum</a
+          >, og for de som trenger vil det arrangeres transport mellom vielsen
+          og middagen.
+        </p>
+        <p>
+          Dersom du har lyst til å ta ordet i løpet av kvelden, så ber vi deg ta
+          kontakt med vår toastmaster, Jan&nbsp;Erik (tlf:
+          <a href="tel:+4793603961">+47 936 03 961</a>).
+        </p>
+        <p>
+          Kleskoden er pent antrekk, men man må gjerne pynte seg så mye man vil.
+          Brudgommen stiller i bunad, og det er selvfølgelig hyggelig om flere
+          ønsker å gjøre det.
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Gaver</h2>
+
+      <p>
+        Det viktigste for oss er selvfølgelig å få feire denne dagen sammen med
+        dere!
+      </p>
+
+      <p>
+        Dersom dere ønsker å gi oss en gave kommer vi til å registrere en liste
+        på
+        <a
+          href="https://www.cg.no/apps/giftregistry/registry/377815?_r=1&utm_source=gift_reggie&utm_medium=gift_reggie&utm_campaign=gift_reggie&utm_content=377815"
+          >Christiania Glasmagasin</a
+        >.
+      </p>
+      <p>
+        Ellers har vi også noen større ting vi ønsker oss, blant annet
+        thermomixer og telt, så hvis dere ønsker å bidra til det så er vi veldig
+        takknemlig.
+      </p>
+    </section>
+
+    <figure>
+      <img class="big" src="bg2.jpg" alt="Regnbue ved Almåsvold" />
+
+      <figcaption>Regnbue ved Almåsvold.</figcaption>
+    </figure>
   </body>
+
   <script>
     const hasPointer = window.matchMedia("(pointer: fine)").matches;
     const card = document.getElementById("card");
